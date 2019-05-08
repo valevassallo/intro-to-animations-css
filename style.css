@@ -1,0 +1,88 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+p {
+  text-align: center;
+}
+
+.underline-from-center {
+  background-color: rgb(189, 189, 189);
+  width: 300px;
+  height: 50px;
+  position: relative;
+}
+
+.underline-from-center::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(31, 126, 214);
+  visibility: hidden;
+  transform: scaleX(0);
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.underline-from-center:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.bounce-to-right {
+  background-color: rgb(189, 189, 189);
+  width: 300px;
+  height: 50px;
+  position: relative;
+}
+
+.bounce-to-right::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(31, 126, 214);
+  visibility: hidden;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.bounce-to-right:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+  animation-name: bounce;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes bounce {
+  0% {
+    width: 0%;
+  }
+
+  70% {
+    width: 100%;
+  }
+
+  80% {
+    width: 90%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
